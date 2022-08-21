@@ -1,19 +1,26 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6]);
+  const [numbers, setNumbers] = useState(0);
 
-  
-  const roll = numbers[Math.floor(Math.random() * 6)];
+  function roll() {
+    setNumbers(Math.floor(Math.random() * 6) + 1);
+  }
 
   return (
     <div className="App">
-      <h1>{roll}</h1>
-      <button onClick={() => {setNumbers}}>Click</button>
+      <h1>{numbers}</h1>
+      <button
+        onClick={() => {
+          roll();
+        }}
+      >
+        Click
+      </button>
     </div>
   );
 }
 
-export default App
+export default App;
